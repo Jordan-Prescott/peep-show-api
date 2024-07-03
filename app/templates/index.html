@@ -8,21 +8,60 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #0E2C12;
             text-align: center;
         }
-
-        h1, h3 {
+        nav {
+            width: 100%;
+            padding: 10px 0;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        main {
+            margin-top: 50px; 
+            padding: 20px;
+        }
+        h1, h2, h3 {
             margin: 0;
             padding: 10px 0;
+            color: #FFFFFF;
         }
         p {
             line-height: 1.6;
             margin: 20px 0;
+            color: #FFFFFF;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+          }
+        ul, li {
+            color: #FFFFFF;
+        }
+        a {
+            color: #0000FF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            float:left;
+            margin: 10px;
+            width: 100px;
+            height: 60px;
         }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="/">
+        <img src="/static/img/peep_logo.png" alt="peepshow logo", class="logo"/>
+        </a>
+    </nav>
+    <main>
     <div class="header">
         <h1>Made by Jeremy Usborne</h1>
         <p>We knew it wasn't going to be a proper job when we hired him.</p>
@@ -56,6 +95,7 @@
         <h2>Contact Us</h2>
         <p>If you have any questions, feedback, or you would like to contribute, feel free to reach out to us on <a href="https://www.linkedin.com/in/jordan-prescott">LinkedIn</a>.</p>
     </div>
+    </main>
     <div class="footer">
         <p>&copy; 2024 The Dobby Club API</p>
     </div>
