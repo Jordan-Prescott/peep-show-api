@@ -2,7 +2,7 @@
 
 Welcome to the Dobby Club! The ultimate API for UK sitcom Peep Show.
 
-![Everythings Cool in Dobby Club](./assets/cool_in_dobby_club.jpeg)
+![Everythings Cool in Dobby Club]((https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/everythings-cool-in-dobby-club.jpeg))
 
 This API is a RESTful API that provides information about the show, its characters, and its episodes. The API is built using Python Fast API, Vercel, and Supabase.
 
