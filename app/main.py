@@ -2,8 +2,8 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from db.supabase import SupabaseClient
-from endpoints import all_routers
+from app.db.supabase import SupabaseClient
+from app.endpoints import all_routers
 
 app = FastAPI()
 
