@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-router = APIRouter(prefix="/audio", tags=["audio"])
+router = APIRouter(prefix="/audios", tags=["audio"])
 
 @router.get("/")
 async def get_audio():

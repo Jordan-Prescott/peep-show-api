@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-router = APIRouter(prefix="/location", tags=["location"])
+router = APIRouter(prefix="/locations", tags=["location"])
 
 @router.get("/")
 async def get_locations():

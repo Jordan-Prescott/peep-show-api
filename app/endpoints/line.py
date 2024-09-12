@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-router = APIRouter(prefix="/line", tags=["line"])
+router = APIRouter(prefix="/lines", tags=["line"])
 
 @router.get("/")
 async def get_lines():

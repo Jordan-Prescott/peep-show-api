@@ -1,0 +1,7 @@
+GET http://127.0.0.1:8000/api/memes/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/memes/?file_name=everythings-cool-in-dobby-club
+Content-Type: application/json

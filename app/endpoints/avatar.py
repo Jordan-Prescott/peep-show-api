@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 
-router = APIRouter(prefix="/avatar", tags=["avatar"])
+router = APIRouter(prefix="/avatars", tags=["avatar"])
 
 @router.get("/")
 async def get_avatars():
