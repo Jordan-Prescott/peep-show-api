@@ -8,7 +8,7 @@ router = APIRouter(prefix="/memes", tags=["meme"])
 
 db = SupabaseClient().get_client()
 
-@router.get("/")
+@router.get("/", response_model=List[Meme])
 async def get_memes(
     file_name: Optional[str] = None
     ) -> List[Meme]:
