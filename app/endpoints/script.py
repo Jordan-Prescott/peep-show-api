@@ -25,8 +25,8 @@ async def get_script(
         
     response = query.execute()
     
-    if not response:
-        raise HTTPException(status_code=404, detail="Location not found")
+    if not response.data:
+        raise HTTPException(status_code=404, detail="Script not found")
     
     return [
         Script(**script) for script in response.data

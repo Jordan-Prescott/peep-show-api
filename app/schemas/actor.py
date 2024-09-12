@@ -1,8 +1,14 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class Actor(BaseModel):
     first_name: str
     last_name: str
-    gender: str
-    participation_range: str
-    total_episodes: int
+    gender: Optional[str] = None
+    participation_range: Optional[str] = None
+    total_episodes: Optional[str] = None
+    
+
+class ActorCharacter(BaseModel):
+    first_name: str
+    last_name: str
