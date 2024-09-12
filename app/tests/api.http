@@ -5,3 +5,29 @@ Content-Type: application/json
 
 GET http://127.0.0.1:8000/api/memes/?file_name=everythings-cool-in-dobby-club
 Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/series/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/series/?series_number=1
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/actors/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/actors/?first_name=David&last_name=Mitchell
+Content-Type: application/json
+
+
+###
+
+GET http://127.0.0.1:8000/api/actors/?last_name=Webb
+Content-Type: application/json
