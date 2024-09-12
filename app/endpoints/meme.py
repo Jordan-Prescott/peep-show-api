@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
 from ..db.supabase import SupabaseClient
-from ..schemas import Meme
+from ..schemas.meme import Meme
 
 router = APIRouter(prefix="/memes", tags=["meme"])
 

@@ -7,6 +7,7 @@ from .line import router as line_router
 from .location import router as location_router
 from .meme import router as meme_router
 from .script import router as script_router
+from .series import router as series_router
 
 # loaded in app/main.py
 all_routers = [
@@ -19,4 +20,5 @@ all_routers = [
     location_router,
     meme_router,
     script_router,
+    series_router
 ]
