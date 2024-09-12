@@ -41,3 +41,8 @@ Content-Type: application/json
 
 GET http://127.0.0.1:8000/api/locations/?name=JLB
 Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/scripts/1/2
+Content-Type: application/json
