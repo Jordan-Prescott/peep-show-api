@@ -13,8 +13,8 @@ supabase_client = SupabaseClient().get_client()
 for router in all_routers:
     app.include_router(router, prefix="/api")
     
-templates = Jinja2Templates(directory="./templates")
-app.mount("/static", StaticFiles(directory="./static"), name="static")
+templates = Jinja2Templates(directory="app/templates")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 @app.get("/")
 async def root(request: Request):
