@@ -31,3 +31,13 @@ Content-Type: application/json
 
 GET http://127.0.0.1:8000/api/actors/?last_name=Webb
 Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/locations/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/locations/?name=JLB
+Content-Type: application/json

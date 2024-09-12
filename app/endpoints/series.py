@@ -8,7 +8,7 @@ router = APIRouter(prefix="/series", tags=["series"])
 
 db = SupabaseClient().get_client()
 
-@router.get("/")
+@router.get("/", response_model=List[Series])
 async def get_series(
     series_number: Optional[SeriesURLChoices] | None = None
     ) -> List[Series]:
