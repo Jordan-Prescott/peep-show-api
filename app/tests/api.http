@@ -3,6 +3,11 @@ Content-Type: application/json
 
 ###
 
+GET http://127.0.0.1:8000/api/memes/random
+Content-Type: application/json
+
+###
+
 GET http://127.0.0.1:8000/api/memes/?file_name=everythings-cool-in-dobby-club
 Content-Type: application/json
 
@@ -55,4 +60,20 @@ Content-Type: application/json
 ###
 
 GET http://127.0.0.1:8000/api/characters/?first_name=mark
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/quotes/search/?quote=men with ven
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/quotes/filter/?spoken_by=dobby
+Content-Type: application/json
+
+
+###
+
+GET http://127.0.0.1:8000/api/quotes/random/
 Content-Type: application/json

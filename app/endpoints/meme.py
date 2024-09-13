@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
@@ -10,7 +10,9 @@ db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Meme])
 async def get_memes(
-    file_name: Optional[str] = None
+    file_name: Optional[str] = Query(None, 
+                                     example="everythings-cool-in-dobby-club"
+                                    )    
     ) -> List[Meme]:
     
     query = db.table("meme_metadata").select(
@@ -28,3 +30,20 @@ async def get_memes(
     return [
         Meme(**meme) for meme in response.data
     ]
+    
+    
+@router.get("/random/", response_model=Meme)
+async def get_memes() -> Meme:
+    
+    import random
+    
+    query = db.table("meme_metadata").select(
+        "file_name, file_type, file_url"
+    )
+        
+    response = query.execute()
+    
+    if not response.data:
+        raise HTTPException(status_code=404, detail="Meme not found")
+    
+    return Meme(**random.choice(response.data))
