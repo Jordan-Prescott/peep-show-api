@@ -13,7 +13,7 @@ db = SupabaseClient().get_client()
 @limiter.limit("5/second")
 async def get_avatars(
     request: Request,
-    file_name: Optional[str] = Query(None, example="sperm")
+    file_name: Optional[str] = Query(None, example="Andy")
     ) -> List[Avatar]:
     
     query = db.table("avatar_metadata").select(
