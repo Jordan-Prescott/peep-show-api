@@ -22,7 +22,7 @@ async def get_locations(
         
     response = query.execute()
     
-    if not response:
+    if not response.data:
         raise HTTPException(status_code=404, detail="Location not found")
     
     return [

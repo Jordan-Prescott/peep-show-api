@@ -27,7 +27,7 @@ async def get_actors(
 
     response = query.execute()
     
-    if not response:
+    if not response.data:
         raise HTTPException(status_code=404, detail="Actors not found")
 
     return [
