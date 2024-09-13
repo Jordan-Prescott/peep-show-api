@@ -87,3 +87,18 @@ Content-Type: application/json
 
 GET http://127.0.0.1:8000/api/audio/?file_name=porn
 Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/audio/random/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/avatars/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/avatars/?file_name=mark
+Content-Type: application/json

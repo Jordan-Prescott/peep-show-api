@@ -35,7 +35,7 @@ async def get_audio(
     
     
 @router.get("/random/", response_model=Audio)
-async def get_audio() -> Audio:
+async def get_random_audio() -> Audio:
     
     import random
     
