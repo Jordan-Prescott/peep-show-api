@@ -25,8 +25,12 @@ async def get_quotes(
     
     query = query.ilike("line_content", f"%{sanitised_quote}%")
     
-    response = query.execute()
-    
+    try:
+        response = query.execute()
+    except Exception as e: 
+        return HTTPException(status_code=500, detail=e.message)
+        
+        
     if not response.data:
         raise HTTPException(status_code=404, detail="Quote not found")
     
