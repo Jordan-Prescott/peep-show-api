@@ -13,7 +13,7 @@ db = SupabaseClient().get_client()
 @limiter.limit("5/second")
 async def get_quotes(
     request: Request,
-    quote: str = Query(..., min_length=3, example="everything's cool in Dobby Club.")
+    quote: str = Query(..., min_length=5, example="everything's cool in Dobby Club.")
     ) -> List[Line]:
     
     sanitised_quote = quote.strip()
