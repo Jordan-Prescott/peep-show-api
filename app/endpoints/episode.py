@@ -1,17 +1,19 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 from datetime import datetime
 
 from ..db.supabase import SupabaseClient
-from ..schemas.episode import Episode, EpisodeURLChoices
-from ..schemas.series import SeriesURLChoices
+from ..schemas.episode import Episode
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/episodes", tags=["episodes"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Episode])
+@limiter.limit("5/second")
 async def get_episodes(
+    request: Request,
     title: Optional[str] = Query(None, example="Warring Factions"),
     start_date: Optional[str] = Query(None, example="2005-09-21"),
     end_date: Optional[str] = Query(None, example="2006-10-12"),

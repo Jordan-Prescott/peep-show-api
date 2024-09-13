@@ -1,15 +1,18 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
 from ..schemas.meme import Meme
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/memes", tags=["meme"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Meme])
+@limiter.limit("5/second")
 async def get_memes(
+    request: Request,
     file_name: Optional[str] = Query(None, example="everythings-cool-in-dobby-club")    
     ) -> List[Meme]:
     
@@ -31,7 +34,10 @@ async def get_memes(
     
     
 @router.get("/random/", response_model=Meme)
-async def get_random_meme() -> Meme:
+@limiter.limit("5/second")
+async def get_random_meme(
+    request: Request
+    ) -> Meme:
     
     import random
     

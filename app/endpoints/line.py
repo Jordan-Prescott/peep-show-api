@@ -1,15 +1,18 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
 from ..schemas.line import Line, LineFilter
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/quotes", tags=["quotes"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/search/", response_model=List[Line])
+@limiter.limit("5/second")
 async def get_quotes(
+    request: Request,
     quote: str = Query(..., min_length=3, example="everything's cool in Dobby Club.")
     ) -> List[Line]:
     
@@ -33,7 +36,9 @@ async def get_quotes(
     
     
 @router.get("/filter/", response_model=List[LineFilter])
+@limiter.limit("5/second")
 async def get_quotes_filter(
+    request: Request,
     spoken_by: Optional[str] = Query(None, example="Mark"),
     spoken_to: Optional[str] = Query(None, example="Jeremy"),
     ) -> List[LineFilter]:
@@ -60,7 +65,10 @@ async def get_quotes_filter(
     
 
 @router.get("/random/", response_model=LineFilter)
-async def get_random_quotes() -> LineFilter:
+@limiter.limit("5/second")
+async def get_random_quotes(
+    request: Request
+    ) -> LineFilter:
 
     import random
 

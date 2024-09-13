@@ -1,17 +1,20 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from typing import List
 
 from ..db.supabase import SupabaseClient
 from ..schemas.script import Script
 from ..schemas.series import SeriesURLChoices
 from ..schemas.episode import EpisodeURLChoices
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/scripts", tags=["scripts"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/{series_number}/{episode_number}", response_model=List[Script])
+@limiter.limit("5/second")
 async def get_script(
+    request: Request,
     series_number: SeriesURLChoices,
     episode_number: EpisodeURLChoices
     ) -> List[Script]:

@@ -1,15 +1,18 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
 from ..schemas.audio import Audio
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/audio", tags=["audio"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Audio])
+@limiter.limit("5/second")
 async def get_audio(
+    request: Request,
     file_name: Optional[str] = Query(None, example="sperm")    
     ) -> List[Audio]:
     
@@ -31,7 +34,8 @@ async def get_audio(
     
     
 @router.get("/random/", response_model=Audio)
-async def get_random_audio() -> Audio:
+@limiter.limit("5/second")
+async def get_random_audio(request: Request) -> Audio:
     
     import random
     

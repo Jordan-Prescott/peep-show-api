@@ -1,15 +1,18 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
 from ..schemas.avatar import Avatar
+from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/avatars", tags=["avatars"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Avatar])
+@limiter.limit("5/second")
 async def get_avatars(
+    request: Request,
     file_name: Optional[str] = Query(None, example="sperm")
     ) -> List[Avatar]:
     
@@ -31,7 +34,10 @@ async def get_avatars(
     
     
 @router.get("/random/", response_model=Avatar)
-async def get_random_avatar() -> Avatar:
+@limiter.limit("5/second")
+async def get_random_avatar(
+    request: Request
+    ) -> Avatar:
     
     import random
     
