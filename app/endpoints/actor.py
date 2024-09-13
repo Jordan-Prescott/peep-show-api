@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
@@ -10,8 +10,8 @@ db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Actor])
 async def get_actors(
-    first_name: Optional[str] = None, 
-    last_name: Optional[str] = None
+    first_name: Optional[str] = Query(None, example="Robert"),
+    last_name: Optional[str] = Query(None, example="Webb")
     ) -> List[Actor]:
     
     query = db.table("actor").select(

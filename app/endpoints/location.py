@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
@@ -10,7 +10,7 @@ db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Location])
 async def get_locations(
-    name: Optional[str] = None
+    name: Optional[str] = Query(None, example="JLB")
     ) -> List[Location]:
     
     query = db.table("location").select(

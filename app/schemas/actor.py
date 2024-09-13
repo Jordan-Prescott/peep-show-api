@@ -6,7 +6,7 @@ class Actor(BaseModel):
     last_name: str
     gender: Optional[str] = None
     participation_range: Optional[str] = None
-    total_episodes: Optional[str] = None
+    total_episodes: Optional[int] = None
     
 
 class ActorCharacter(BaseModel):

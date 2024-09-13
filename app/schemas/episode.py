@@ -19,4 +19,3 @@ class Episode(BaseModel):
     directors: str
     writers: str
     synopsis: str
-    #TODO: FK
