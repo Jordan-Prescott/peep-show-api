@@ -3,8 +3,6 @@ from typing import List
 from datetime import datetime
 from enum import Enum
 
-from .character import CharacterEpisode
-
 class EpisodeURLChoices(Enum):
     EPISODE_1 = '1'
     EPISODE_2 = '2'
@@ -22,7 +20,3 @@ class Episode(BaseModel):
     writers: str
     synopsis: str
     #TODO: FK
-    
-class EpisodeCharacter(Episode):
-    episode: Episode
-    characters: List[CharacterEpisode]

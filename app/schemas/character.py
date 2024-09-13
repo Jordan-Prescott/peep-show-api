@@ -10,7 +10,3 @@ class Character(BaseModel):
     last_appearance: str
     total_episodes: int
     actor: Optional[ActorCharacter] = None
-    
-class CharacterEpisode(BaseModel):
-    first_name: str
-    last_name: str
