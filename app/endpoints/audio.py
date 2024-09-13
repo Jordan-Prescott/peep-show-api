@@ -10,9 +10,7 @@ db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Audio])
 async def get_audio(
-    file_name: Optional[str] = Query(None, 
-                                     example="sperm"
-                                    )    
+    file_name: Optional[str] = Query(None, example="sperm")    
     ) -> List[Audio]:
     
     query = db.table("audio_metadata").select(

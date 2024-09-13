@@ -10,9 +10,7 @@ db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Meme])
 async def get_memes(
-    file_name: Optional[str] = Query(None, 
-                                     example="everythings-cool-in-dobby-club"
-                                    )    
+    file_name: Optional[str] = Query(None, example="everythings-cool-in-dobby-club")    
     ) -> List[Meme]:
     
     query = db.table("meme_metadata").select(

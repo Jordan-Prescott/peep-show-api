@@ -10,9 +10,7 @@ db = SupabaseClient().get_client()
 
 @router.get("/search/", response_model=List[Line])
 async def get_quotes(
-    quote: str = Query(..., min_length=3, 
-                        description="Search term for the quote",
-                       example="everything's cool in Dobby Club.")
+    quote: str = Query(..., min_length=3, example="everything's cool in Dobby Club.")
     ) -> List[Line]:
     
     sanitised_quote = quote.strip()
@@ -36,12 +34,8 @@ async def get_quotes(
     
 @router.get("/filter/", response_model=List[LineFilter])
 async def get_quotes_filter(
-    spoken_by: Optional[str] = Query(None, 
-                                    description="Character who spoke the quote",
-                                    example="Mark"),
-    spoken_to: Optional[str] = Query(None,
-                                    description="Character who the quote was spoken to",
-                                    example="Jeremy"),
+    spoken_by: Optional[str] = Query(None, example="Mark"),
+    spoken_to: Optional[str] = Query(None, example="Jeremy"),
     ) -> List[LineFilter]:
 
     query = db.table("line").select(
