@@ -35,7 +35,7 @@ async def get_quotes(
     
     
 @router.get("/filter/", response_model=List[LineFilter])
-async def get_quotes(
+async def get_quotes_filter(
     spoken_by: Optional[str] = Query(None, 
                                     description="Character who spoke the quote",
                                     example="Mark"),
@@ -66,7 +66,7 @@ async def get_quotes(
     
 
 @router.get("/random/", response_model=LineFilter)
-async def get_quotes() -> LineFilter:
+async def get_random_quotes() -> LineFilter:
 
     import random
 

@@ -33,7 +33,7 @@ async def get_memes(
     
     
 @router.get("/random/", response_model=Meme)
-async def get_memes() -> Meme:
+async def get_random_meme() -> Meme:
     
     import random
     

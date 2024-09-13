@@ -2,27 +2,29 @@ from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional
 
 from ..db.supabase import SupabaseClient
-from ..schemas.aduio import Audio
+from ..schemas.audio import Audio
 
 router = APIRouter(prefix="/audio", tags=["audio"])
 
 db = SupabaseClient().get_client()
 
 @router.get("/", response_model=List[Audio])
-async def get_memes(
+async def get_audio(
     file_name: Optional[str] = Query(None, 
                                      example="sperm"
                                     )    
     ) -> List[Audio]:
     
     query = db.table("audio_metadata").select(
-        "file_name, file_type, file_url"
+        "file_name, file_type, file_url, character(first_name, last_name)"
     )
     
     if file_name:
         query = query.eq("file_name", file_name)
         
     response = query.execute()
+    
+    print(response.data)
     
     if not response.data:
         raise HTTPException(status_code=404, detail="Audio not found")
@@ -33,7 +35,7 @@ async def get_memes(
     
     
 @router.get("/random/", response_model=Audio)
-async def get_memes() -> Audio:
+async def get_audio() -> Audio:
     
     import random
     
