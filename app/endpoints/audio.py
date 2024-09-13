@@ -24,8 +24,6 @@ async def get_audio(
         
     response = query.execute()
     
-    print(response.data)
-    
     if not response.data:
         raise HTTPException(status_code=404, detail="Audio not found")
     

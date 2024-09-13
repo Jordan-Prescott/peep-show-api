@@ -100,5 +100,36 @@ Content-Type: application/json
 
 ###
 
-GET http://127.0.0.1:8000/api/avatars/?file_name=mark
+GET http://127.0.0.1:8000/api/avatars/?file_name=andy
+Content-Type: application/json
+
+
+###
+
+GET http://127.0.0.1:8000/api/avatars/random/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/episodes/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/episodes/?series=2
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/episodes/?start_date=2003-09-24&end_date=2015-11-26
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/episodes/?start_date=2015-01-01
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/episodes/?title=Quantocking
 Content-Type: application/json
