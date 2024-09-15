@@ -24,10 +24,10 @@ async def get_characters(
 
     if first_name:
         first_name = first_name.capitalize()
-        query = query.like("first_name", f"%{first_name}%")
+        query = query.ilike("first_name", f"%{first_name}%")
     if last_name:
         last_name = last_name.capitalize()
-        query = query.like("last_name", f"%{last_name}%")
+        query = query.ilike("last_name", f"%{last_name}%")
         
     response = query.execute()
     
