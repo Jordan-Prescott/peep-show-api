@@ -23,7 +23,7 @@ async def get_quotes(
             script(series, episode), location(name), meme_metadata(file_name, file_type, file_url)"
     )
     
-    query = query.ilike("line_content", f"%{sanitised_quote}%")
+    query = query.like("line_content", f"%{sanitised_quote}%")
     
     try:
         response = query.execute()
