@@ -23,12 +23,12 @@ async def get_quotes(
             script(series, episode), location(name), meme_metadata(file_name, file_type, file_url)"
     )
     
-    query = query.like("line_content", f"%{sanitised_quote}%")
+    query = query.ilike("line_content", f"%{sanitised_quote}%")
     
     try:
         response = query.execute()
     except Exception as e: 
-        return HTTPException(status_code=500, detail=e.message)
+        return HTTPException(status_code=500, detail=e)
         
         
     if not response.data:
