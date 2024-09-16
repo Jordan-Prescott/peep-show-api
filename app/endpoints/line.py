@@ -32,7 +32,7 @@ async def get_quotes(
     try:
         response = query.execute()
     except Exception as e: 
-        raise HTTPException(status_code=500, detail=e)
+        raise HTTPException(status_code=500, detail=e.details)
     
     print("after try")
     if not response.data:
