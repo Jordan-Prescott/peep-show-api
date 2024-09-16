@@ -21,9 +21,13 @@ async def get_locations(
     )
     
     if name:
-        query = query.like("name", f"%{name}%")
-        
-    response = query.execute()
+        name = name.strip()
+        query = query.ilike("name", f"%{name}%")
+    
+    try:    
+        response = query.execute()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="test error message")
     
     if not response.data:
         raise HTTPException(status_code=404, detail="Location not found")

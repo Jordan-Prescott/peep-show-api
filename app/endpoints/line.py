@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, HTTPException, Query, Request
 from typing import List, Optional
 
@@ -6,8 +8,8 @@ from ..schemas.line import Line, LineFilter
 from ..dependancies.rate_limiter import limiter
 
 router = APIRouter(prefix="/quotes", tags=["quotes"])
-
 db = SupabaseClient().get_client()
+logger = logging.getLogger("app")
 
 @router.get("/search/", response_model=List[Line])
 @limiter.limit("5/second")
@@ -17,20 +19,22 @@ async def get_quotes(
     ) -> List[Line]:
     
     sanitised_quote = quote.strip()
+    logger.info(f"Searching for quote: {sanitised_quote}")
     
     query = db.table("line").select(
         "line_content, spoken_by, spoken_to, line_number, \
             script(series, episode), location(name), meme_metadata(file_name, file_type, file_url)"
-    )
+    ).limit(100)
     
     query = query.ilike("line_content", f"%{sanitised_quote}%")
     
     try:
         response = query.execute()
+        logging.info(f"Response: {response}")
     except Exception as e: 
-        return HTTPException(status_code=500, detail=e.message)
-        
-        
+        logging.error(f"Query failed with error: {e}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
     if not response.data:
         raise HTTPException(status_code=404, detail="Quote not found")
     

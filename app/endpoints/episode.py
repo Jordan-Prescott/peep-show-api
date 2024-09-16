@@ -15,8 +15,8 @@ db = SupabaseClient().get_client()
 async def get_episodes(
     request: Request,
     title: Optional[str] = Query(None, example="Warring Factions"),
-    start_date: Optional[str] = Query(None, example="2005-09-21"),
-    end_date: Optional[str] = Query(None, example="2006-10-12"),
+    start_date: Optional[str] = Query(None, example="2003-09-19"),
+    end_date: Optional[str] = Query(None, example="2003-09-19"),
     ) -> List[Episode]:
     
     query = db.table("episode").select(
@@ -26,7 +26,7 @@ async def get_episodes(
 
     if title:
         title = title.capitalize()
-        query = query.like("title", f"%{title}%")
+        query = query.ilike("title", f"%{title}%")
 
     if start_date:
         try:

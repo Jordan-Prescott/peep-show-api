@@ -64,7 +64,7 @@ Content-Type: application/json
 
 ###
 
-GET http://127.0.0.1:8000/api/quotes/search/?quote=fuck
+GET http://127.0.0.1:8000/api/quotes/search/?quote=hmm
 Content-Type: application/json
 
 ###
@@ -111,7 +111,7 @@ Content-Type: application/json
 
 ###
 
-GET http://127.0.0.1:8000/api/episodes/
+GET http://127.0.0.1:8000/api/episodes/?title=Warring Factions
 Content-Type: application/json
 
 ###
