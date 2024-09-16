@@ -21,15 +21,14 @@ async def get_quotes(
     query = db.table("line").select(
         "line_content, spoken_by, spoken_to, line_number, \
             script(series, episode), location(name), meme_metadata(file_name, file_type, file_url)"
-    )
+    ).limit(100)
     
     query = query.ilike("line_content", f"%{sanitised_quote}%")
     
     try:
         response = query.execute()
     except Exception as e: 
-        return HTTPException(status_code=500, detail=e)
-        
+        raise HTTPException(status_code=500, detail=e)
         
     if not response.data:
         raise HTTPException(status_code=404, detail="Quote not found")

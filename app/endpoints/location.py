@@ -21,6 +21,7 @@ async def get_locations(
     )
     
     if name:
+        name = name.strip()
         query = query.ilike("name", f"%{name}%")
         
     response = query.execute()
