@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -14,6 +16,8 @@ app = FastAPI()
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 supabase_client = SupabaseClient().get_client()
+logger = logging.getLogger("app")
+logger.setLevel(logging.DEBUG)
 
 for router in all_routers:
     app.include_router(router, prefix="/api")
