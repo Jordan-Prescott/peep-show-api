@@ -15,6 +15,7 @@ The API is built using Python Fast API, Vercel, and Supabase.
 - [Authentication](#authentication)
 - [License](#license)
 - [Contact](#contact)
+- [Memes](#memes)
 
 ## Usage
 
@@ -45,3 +46,14 @@ This project is licensed under the MIT License.
 ## Contact
 
 If you have any questions, feedback, or you would like to contribute feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jordan-prescott)
+
+## Memes
+
+## Memes
+
+| file_name | file_type | file_url |
+|-----------|-----------|----------|
+| everythings-cool-in-dobby-club | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/everythings-cool-in-dobby-club.jpeg |
+| you-cant-trust-people | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/like-coldpay-voted-for-the-nazis.jpg?t=2024-09-13T12%3A39%3A44.474Z |
+| men-with-ven | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/men-with-ven.jpg?t=2024-09-13T08%3A23%3A18.963Z |
+
