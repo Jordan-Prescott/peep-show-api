@@ -58,11 +58,17 @@ async def get_quotes_filter(
     if spoken_by:
         spoken_by = spoken_by.capitalize()
         query = query.ilike("spoken_by", spoken_by)
+        logger.info(f"Searching for quotes spoken by: {spoken_by}")
     if spoken_to:
         spoken_to = spoken_to.capitalize()
         query = query.ilike("spoken_to", spoken_to)
-        
-    response = query.execute()
+        logger.info(f"Searching for quotes spoken to: {spoken_to}")
+    
+    try:   
+        response = query.execute()
+    except Exception as e:
+        logger.error(f"Query failed with error: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
     
     if not response.data:
         raise HTTPException(status_code=404, detail="Quote not found")
@@ -83,8 +89,12 @@ async def get_random_quotes(
     query = db.table("line").select(
         "line_content, spoken_by, spoken_to, line_number"
         )
-        
-    response = query.execute()
+    
+    try:  
+        response = query.execute()
+    except Exception as e:
+        logger.error(f"Query failed with error: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
     
     if not response.data:
         raise HTTPException(status_code=404, detail="Quote not found")
