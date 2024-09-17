@@ -16,12 +16,13 @@ The API is built using Python Fast API, Vercel, and Supabase.
 - [License](#license)
 - [Contact](#contact)
 - [Memes](#memes)
+- [Links](#links)
 
 ## Usage
 
 The best place to start for using the API is the Swagger documentation built into FastAPI. These docs allow you to interact with the API and see the responses in real-time.
 
-You can find the documentation [here](https://thedobby.club/docs).
+You can find the documentation [here](https://thedobby.club/docs/).
 
 ## Endpoints
 - `/actors` - Get all actors or search for an actor by name.
@@ -49,11 +50,13 @@ If you have any questions, feedback, or you would like to contribute feel free t
 
 ## Memes
 
-## Memes
-
 | file_name | file_type | file_url |
 |-----------|-----------|----------|
 | everythings-cool-in-dobby-club | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/everythings-cool-in-dobby-club.jpeg |
 | you-cant-trust-people | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/like-coldpay-voted-for-the-nazis.jpg?t=2024-09-13T12%3A39%3A44.474Z |
 | men-with-ven | image/jpeg | https://cofuvfbkdyfchroaxcvi.supabase.co/storage/v1/object/public/memes/men-with-ven.jpg?t=2024-09-13T08%3A23%3A18.963Z |
 
+## Links
+- [Docs](https://thedobby.club/docs/)
+- [Website](https://jordan-prescott/portfolio/peep-show-api)
+- [Postman](https://www.postman.com/lively-spaceship-757822/workspace/the-dobby-club/collection/13389112-74eb133b-8ee1-4e7e-bb22-ccdb4490d090?action=share&creator=13389112&active-environment=13389112-617870ff-bad0-4861-bfd6-8b4d152b999f)
