@@ -13,7 +13,6 @@ The API is built using Python Fast API, Vercel, and Supabase.
 - [Usage](#usage)
 - [Endpoints](#endpoints)
 - [Authentication](#authentication)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -38,26 +37,6 @@ You can find the documentation [here](https://thedobby.club/docs).
 ## Authentication
 
 The API doesnt reqiuire any authentication for GET requests. Only POST, PUT, and DELETE requests require authentication and for access to these endpoints, you will need to provide a valid API key which only contributes will have access to. - If you qualify and would like to contribute please reach out [here](#contact)
-
-## Contributing
-
-*I would love some help on this!* If you want to contribute to the code please follow the below steps for changes to the API. 
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/YourFeature`)
-3. Commit your Changes (`git commit -m 'Add some YourFeature'`)
-4. Push to the Branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
-
-### Database
-
-The database is hosted in Supabase which runs Postgres SQL and access needs to be granted to contributors. If you would like to assist with the database please reach out [here](#contact)
-
-### Memes
-
-I want the database to become a meme goldmine for Peep Show fans. 
-
-If you have any memes you would like to add please reach out to me [here](#contact) and I will MAKE SURE theyre added. 
 
 ## License
 
