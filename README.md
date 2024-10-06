@@ -53,11 +53,6 @@ If you have any questions, feedback, or you would like to contribute feel free t
 - [Website](https://jordan-prescott/portfolio/peep-show-api)
 - [Postman](https://www.postman.com/lively-spaceship-757822/workspace/the-dobby-club/collection/13389112-74eb133b-8ee1-4e7e-bb22-ccdb4490d090?action=share&creator=13389112&active-environment=13389112-617870ff-bad0-4861-bfd6-8b4d152b999f)
 
-## Links
-- [Docs](https://thedobby.club/docs/)
-- [Website](https://jordan-prescott/portfolio/peep-show-api)
-- [Postman](https://www.postman.com/lively-spaceship-757822/workspace/the-dobby-club/collection/13389112-74eb133b-8ee1-4e7e-bb22-ccdb4490d090?action=share&creator=13389112&active-environment=13389112-617870ff-bad0-4861-bfd6-8b4d152b999f)
-
 ## Memes
 
 | file_name | file_type | file_url |
