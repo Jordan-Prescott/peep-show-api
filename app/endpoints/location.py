@@ -15,7 +15,7 @@ logger = logging.getLogger("app")
 @limiter.limit("5/second")
 async def get_locations(
     request: Request,
-    name: Optional[str] = Query(None, example="JLB")
+    name: Optional[str] = Query(None)
     ) -> List[Location]:
     
     query = db.table("location").select(

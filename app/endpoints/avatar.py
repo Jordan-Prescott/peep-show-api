@@ -15,7 +15,7 @@ logger = logging.getLogger("app")
 @limiter.limit("5/second")
 async def get_avatars(
     request: Request,
-    file_name: Optional[str] = Query(None, example="Andy")
+    file_name: Optional[str] = Query(None, example="andy")
     ) -> List[Avatar]:
     
     query = db.table("avatar_metadata").select(
@@ -25,7 +25,6 @@ async def get_avatars(
     if file_name:
         query = query.eq("file_name", file_name)
         logger.info(f"Searching for avatar with file name: {file_name}")
-        
     try:
         response = query.execute()
     except Exception as e:
